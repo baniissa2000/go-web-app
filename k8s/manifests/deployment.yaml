@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-deployment
+  labels:
+    app: my-golang
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-golang
+  template:
+    metadata:
+      labels:
+        app: my-golang
+    spec:
+      containers:
+      - name: golang-app
+        image: baniissa2000/go-web-app:v2
+        ports:
+        - containerPort: 9090
